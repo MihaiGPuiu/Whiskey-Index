@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Random Whiskey Search Results
+{% endblock %}
+
+{% block content %}
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(154px, 1fr)); grid-gap: 40px;">
+    {% for letter, whiskeys in whiskey_dict.items %}
+      <div>
+        <h2>{{ letter }}</h2>
+        <ul>
+          {% for whiskey in whiskeys %}
+            <li><a href="https://www.compari.ro/CategorySearch.php?st={{ whiskey|cut:"0.7L"|cut:"0.75L"|cut:"0.2L" }}" target="_blank">{{ whiskey }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+  
+{% endblock %}

@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Whiskey Generator
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Add your CSS styles here */
+        body {
+            background-color: #f0f0f0;
+        }
+        /* Rest of the CSS styles */
+        .whiskey-info {
+            max-width: 100px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .whiskey-info {
+            max-width: 90%; /* Adjust the width as needed */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 10px;
+        }
+        
+        .whiskey-details {
+            display: flex;
+            align-items: right;
+        }
+
+        .whiskey-image {
+            flex:1;
+        }
+
+        .whiskey-image img {
+            max-width: 200%;
+            height: auto;
+            display: block;
+            border-radius: 68px;
+            box-shadow: 0 8px 34px rgba(0, 0, 0, 0.1);
+        }
+
+        .whiskey-description {
+            flex: 1;
+            padding-left: 20px;
+        }
+
+        .whiskey-description p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .whiskey-description ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .whiskey-description ul li {
+            margin-bottom: 10px;
+        }
+
+        .whiskey-description strong {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .c-search__button {
+            border-top-left-radius: 20;
+            border-bottom-left-radius: 2;
+            border-top-right-radius: 111px; /* Adjust the value to make the button rounder */
+            border-bottom-right-radius: 50px; /* Adjust the value to make the button rounder */
+        }
+
+        body {
+            background-color: rgb(255, 0, 255,0.3)
+        }
+        .navbar {
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.3); /* Set the background color with opacity */
+            border-bottom: 1px solid #808080; /* Set the border (line) thickness and color */
+            color:#Black
+        }
+        body {
+            /* Create a metallic white gradient */
+            background: linear-gradient(to bottom right, #FFFFFF, #cccccc);
+            /* Add metallic effect */
+            background-size: 400% 400%;
+           
+        }
+        .custom-search-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+          }
+        /* Keyframe animation for metallic effect */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        /* Other CSS styles */
+        /* Add your other CSS styles here */
+        .navbar-brand {
+            font-family: 'Inter', sans-serif; /* Use the Google Font 'Roboto' or change to any preferred font */
+            font-weight: bold; /* Make the font bold */
+            font-size: 29px; /* Change the font size as needed */
+            color: #light grey !important;
+        }
+        .no_results_message {
+            font-size: 118px;
+            color: red; /* Customize this color as needed */
+            text-align: center; /* Center align the text */
+            margin-top: 50px; /* Add some margin at the top */
+          }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'whiskey_list' %}"><b>Whiskey Index</b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b>Random Whiskey</b>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link" href="{% url 'whiskey_of_the_day' %}">Single Malt</a>
+                            <a class="nav-link" href="{% url 'irish' %}">Irish</a>
+                            <a class="nav-link" href="{% url 'japanese' %}">Japanese</a>
+                            <a class="nav-link" href="{% url 'bourbon' %}">Bourbon</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- Search form -->
+                <form action="{% url 'whiskey_list' %}" method="GET" class="form-inline my-2 my-lg-0">
+                    <div class="input-group">
+                        <input type="search" class="c-search__input form-control mr-sm-2" name="query" placeholder="Search" aria-label="Search" size="30" color=#Black>
+                        <div class="input-group-append">
+                            <button class="c-search__button btn btn-primary my-2 my-sm-0" type="submit"><span>Search</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+    
+                </div>
+            </form>
+        </div>
+    </nav>
+    
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

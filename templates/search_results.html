@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Search Results
+{% endblock %}
+
+{% block content %}
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(154px, 1fr)); grid-gap: 40px;">
+    {% for letter, whiskeys in whiskey_dict.items %}
+      <div>
+        <h2>{{ letter }}</h2>
+        <ul>
+          {% for whiskey_name in whiskeys %}
+            <li>{{ whiskey_name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Random Whiskey
+{% endblock %}
+
+{% block content %}
+  <div class="whiskey-info">
+    <div class="whiskey-details">
+      <div class="whiskey-image">
+        <img src="/static/japanese/{{ whiskey_name }}.jpeg" alt="Whiskey Image">
+      </div>
+      <div class="whiskey-description">
+        <p>
+            <a href="https://www.compari.ro/CategorySearch.php?st={{ whiskey_name|cut:" 0.7L" }}" target="_blank">{{ whiskey_name|cut:" 0.7L" }}</a>
+        </p>
+        <p><b>Notele degustării:</b></p>
+        <ul>
+          <li>Miros: Note dulcege, predominant fructate, plăcut complimentate cu atingeri de vanilie.</li>
+          <li>Gust: Arome ample de condimente şi lemn, cu inserţii fine de fum.</li>
+          <li>Finish: Condimentat, dulce.</li>
+          <li>Culoare: Ambră.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endblock %}
